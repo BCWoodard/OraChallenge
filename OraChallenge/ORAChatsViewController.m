@@ -8,8 +8,9 @@
 
 #import "ORAChatsViewController.h"
 
-@interface ORAChatsViewController () <NSURLSessionDelegate>
+@interface ORAChatsViewController () <UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate>
 @property (nonatomic, strong) NSArray *chatsArray;
+@property (weak, nonatomic) IBOutlet UITableView *chatsTableView;
 
 @end
 
@@ -30,7 +31,8 @@
                                                             NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
                                                                                                                            options:NSJSONReadingMutableContainers
                                                                                                                              error:&error];
-                                                            NSLog(@"%@", jsonDictionary);
+                                                            _chatsArray = [NSArray arrayWithObject:[jsonDictionary objectForKey:@"data"]];
+                                                            NSLog(@"%@", _chatsArray);
                                                         }
                                                     }];
     
@@ -38,6 +40,28 @@
 
 }
 
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *reuseIdentifier = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    NSDictionary *chatDictionary = [_chatsArray objectAtIndex:indexPath.row];
+    NSLog(@"CHAT DICT: %@", chatDictionary);
+    
+    cell.textLabel.text = [[_chatsArray objectAtIndex:indexPath.row] valueForKey:@"name"];
+    return cell;
+}
+
+
+#pragma mark - Cleanup
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

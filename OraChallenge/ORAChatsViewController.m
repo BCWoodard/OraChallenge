@@ -8,7 +8,8 @@
 
 #import "ORAChatsViewController.h"
 
-@interface ORAChatsViewController ()
+@interface ORAChatsViewController () <NSURLSessionDelegate>
+@property (nonatomic, strong) NSArray *chatsArray;
 
 @end
 
@@ -17,6 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/chats?q=q&page=1&limit=20"];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    
+    NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithURL:url
+                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                        if(error == nil)
+                                                        {
+                                                            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                                           options:NSJSONReadingMutableContainers
+                                                                                                                             error:&error];
+                                                            NSLog(@"%@", jsonDictionary);
+                                                        }
+                                                    }];
+    
+    [dataTask resume];
+
 }
 
 - (void)didReceiveMemoryWarning {

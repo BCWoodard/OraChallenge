@@ -17,6 +17,14 @@
 		4A5226981D4BD8BC008D1E94 /* logo_ora@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226951D4BD8BC008D1E94 /* logo_ora@2x.png */; };
 		4A5226991D4BD8BC008D1E94 /* logo_ora@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226961D4BD8BC008D1E94 /* logo_ora@3x.png */; };
 		4A52269D1D4BDFE5008D1E94 /* ORARegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A52269C1D4BDFE5008D1E94 /* ORARegisterViewController.m */; };
+		4A5226A01D4BE815008D1E94 /* ORAChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A52269F1D4BE815008D1E94 /* ORAChatsViewController.m */; };
+		4A5226A31D4BE82C008D1E94 /* ORAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5226A21D4BE82C008D1E94 /* ORAProfileViewController.m */; };
+		4A5226AA1D4BEC6A008D1E94 /* icon_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A41D4BEC6A008D1E94 /* icon_list.png */; };
+		4A5226AB1D4BEC6A008D1E94 /* icon_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A51D4BEC6A008D1E94 /* icon_list@2x.png */; };
+		4A5226AC1D4BEC6A008D1E94 /* icon_list@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A61D4BEC6A008D1E94 /* icon_list@3x.png */; };
+		4A5226AD1D4BEC6A008D1E94 /* icon_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A71D4BEC6A008D1E94 /* icon_profile.png */; };
+		4A5226AE1D4BEC6A008D1E94 /* icon_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A81D4BEC6A008D1E94 /* icon_profile@2x.png */; };
+		4A5226AF1D4BEC6A008D1E94 /* icon_profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A91D4BEC6A008D1E94 /* icon_profile@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,16 @@
 		4A5226961D4BD8BC008D1E94 /* logo_ora@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_ora@3x.png"; sourceTree = "<group>"; };
 		4A52269B1D4BDFE5008D1E94 /* ORARegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORARegisterViewController.h; sourceTree = "<group>"; };
 		4A52269C1D4BDFE5008D1E94 /* ORARegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORARegisterViewController.m; sourceTree = "<group>"; };
+		4A52269E1D4BE815008D1E94 /* ORAChatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAChatsViewController.h; sourceTree = "<group>"; };
+		4A52269F1D4BE815008D1E94 /* ORAChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORAChatsViewController.m; sourceTree = "<group>"; };
+		4A5226A11D4BE82C008D1E94 /* ORAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAProfileViewController.h; sourceTree = "<group>"; };
+		4A5226A21D4BE82C008D1E94 /* ORAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORAProfileViewController.m; sourceTree = "<group>"; };
+		4A5226A41D4BEC6A008D1E94 /* icon_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_list.png; sourceTree = "<group>"; };
+		4A5226A51D4BEC6A008D1E94 /* icon_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_list@2x.png"; sourceTree = "<group>"; };
+		4A5226A61D4BEC6A008D1E94 /* icon_list@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_list@3x.png"; sourceTree = "<group>"; };
+		4A5226A71D4BEC6A008D1E94 /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile.png; sourceTree = "<group>"; };
+		4A5226A81D4BEC6A008D1E94 /* icon_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_profile@2x.png"; sourceTree = "<group>"; };
+		4A5226A91D4BEC6A008D1E94 /* icon_profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_profile@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +90,10 @@
 				4A5226921D4BCD98008D1E94 /* ORALoginViewController.m */,
 				4A52269B1D4BDFE5008D1E94 /* ORARegisterViewController.h */,
 				4A52269C1D4BDFE5008D1E94 /* ORARegisterViewController.m */,
+				4A52269E1D4BE815008D1E94 /* ORAChatsViewController.h */,
+				4A52269F1D4BE815008D1E94 /* ORAChatsViewController.m */,
+				4A5226A11D4BE82C008D1E94 /* ORAProfileViewController.h */,
+				4A5226A21D4BE82C008D1E94 /* ORAProfileViewController.m */,
 				4A52267D1D4BCD70008D1E94 /* AppDelegate.h */,
 				4A52267E1D4BCD70008D1E94 /* AppDelegate.m */,
 				4A5226831D4BCD70008D1E94 /* Main.storyboard */,
@@ -94,6 +116,12 @@
 		4A52269A1D4BD8C4008D1E94 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4A5226A41D4BEC6A008D1E94 /* icon_list.png */,
+				4A5226A51D4BEC6A008D1E94 /* icon_list@2x.png */,
+				4A5226A61D4BEC6A008D1E94 /* icon_list@3x.png */,
+				4A5226A71D4BEC6A008D1E94 /* icon_profile.png */,
+				4A5226A81D4BEC6A008D1E94 /* icon_profile@2x.png */,
+				4A5226A91D4BEC6A008D1E94 /* icon_profile@3x.png */,
 				4A5226941D4BD8BC008D1E94 /* logo_ora.png */,
 				4A5226951D4BD8BC008D1E94 /* logo_ora@2x.png */,
 				4A5226961D4BD8BC008D1E94 /* logo_ora@3x.png */,
@@ -158,12 +186,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5226AD1D4BEC6A008D1E94 /* icon_profile.png in Resources */,
 				4A52268A1D4BCD70008D1E94 /* LaunchScreen.storyboard in Resources */,
+				4A5226AF1D4BEC6A008D1E94 /* icon_profile@3x.png in Resources */,
+				4A5226AB1D4BEC6A008D1E94 /* icon_list@2x.png in Resources */,
 				4A5226971D4BD8BC008D1E94 /* logo_ora.png in Resources */,
 				4A5226871D4BCD70008D1E94 /* Assets.xcassets in Resources */,
 				4A5226981D4BD8BC008D1E94 /* logo_ora@2x.png in Resources */,
+				4A5226AE1D4BEC6A008D1E94 /* icon_profile@2x.png in Resources */,
 				4A5226851D4BCD70008D1E94 /* Main.storyboard in Resources */,
+				4A5226AC1D4BEC6A008D1E94 /* icon_list@3x.png in Resources */,
 				4A5226991D4BD8BC008D1E94 /* logo_ora@3x.png in Resources */,
+				4A5226AA1D4BEC6A008D1E94 /* icon_list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,8 +210,10 @@
 			files = (
 				4A52269D1D4BDFE5008D1E94 /* ORARegisterViewController.m in Sources */,
 				4A5226931D4BCD98008D1E94 /* ORALoginViewController.m in Sources */,
+				4A5226A01D4BE815008D1E94 /* ORAChatsViewController.m in Sources */,
 				4A52267F1D4BCD70008D1E94 /* AppDelegate.m in Sources */,
 				4A52267C1D4BCD70008D1E94 /* main.m in Sources */,
+				4A5226A31D4BE82C008D1E94 /* ORAProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

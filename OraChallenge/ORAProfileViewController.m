@@ -12,7 +12,6 @@
 - (IBAction)cancelProfileUpdate:(UIButton *)sender;
 - (IBAction)updateProfile:(UIButton *)sender;
 
-
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -61,51 +60,52 @@
 
 #pragma mark - IBActions
 - (IBAction)cancelProfileUpdate:(UIButton *)sender {
-    [UIView animateWithDuration:0.3f animations:^{
-        self.view.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
-    }];
-    
+    [self keyboardWillHide];
     [self.view endEditing:YES];
 }
 
 - (IBAction)updateProfile:(UIButton *)sender {
     NSLog(@"UPDATE");
-    if ([_emailTextField.text isEqualToString:_confirmPasswordTextField.text]) {
-        NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/users/register"];
-        NSDictionary *parameters = @{@"name": _nameTextField.text,
-                                     @"email": _emailTextField.text,
-                                     @"password": _passwordTextField.text};
-        NSData *loginData = [NSJSONSerialization dataWithJSONObject:parameters
-                                                            options:0
-                                                              error:nil];
-        // Create a POST request with our JSON as a request body.
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        request.HTTPMethod = @"POST";
-        request.HTTPBody = loginData;
-        
-        // Create a task.
-        NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
-                                                                     completionHandler:^(NSData *data,
-                                                                                         NSURLResponse *response,
-                                                                                         NSError *error)
-                                      {
-                                          if (!error)
-                                          {
-                                              NSLog(@"Status code: %li", (long)((NSHTTPURLResponse *)response).statusCode);
-                                              [self dismissViewControllerAnimated:YES completion:nil];
-                                              
-                                          }
-                                          else
-                                          {
-                                              NSLog(@"Error: %@", error.localizedDescription);
-                                          }
-                                      }];
-        
-        // Start the task.
-        [task resume];
-    } else {
-        NSLog(@"PASSWORDS DON'T MATCH");
+    if ([_passwordTextField.text isEqualToString:@""] || ![_passwordTextField.text isEqualToString:_confirmPasswordTextField.text]) {
+        NSLog(@"INVALID PASSWORD");
     }
+
+    NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/users/me"];
+    NSDictionary *parameters = @{@"name": _nameTextField.text,
+                                 @"email": _emailTextField.text,
+                                 @"password": _passwordTextField.text,
+                                 @"confirm": _confirmPasswordTextField.text};
+    NSData *loginData = [NSJSONSerialization dataWithJSONObject:parameters
+                                                        options:0
+                                                          error:nil];
+    // Create a POST request with our JSON as a request body.
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"PUT";
+    request.HTTPBody = loginData;
+    
+    // Create a task.
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                                 completionHandler:^(NSData *data,
+                                                                                     NSURLResponse *response,
+                                                                                     NSError *error)
+                                  {
+                                      if (!error)
+                                      {
+                                          NSLog(@"Status code: %li", (long)((NSHTTPURLResponse *)response).statusCode);
+                                          [self dismissViewControllerAnimated:YES completion:nil];
+                                          
+                                      }
+                                      else
+                                      {
+                                          NSLog(@"Error: %@", error.localizedDescription);
+                                      }
+                                  }];
+    
+    // Start the task.
+    [task resume];
+    [self.view endEditing:YES];
+    [self keyboardWillHide];
+
 }
 
 
@@ -113,6 +113,12 @@
 - (void)keyboardWillShow {
     [UIView animateWithDuration:0.3f animations:^{
         self.view.frame = CGRectMake(0.0f, -140.0f, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+- (void)keyboardWillHide {
+    [UIView animateWithDuration:0.3f animations:^{
+        self.view.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
     }];
 }
 

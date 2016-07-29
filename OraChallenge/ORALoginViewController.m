@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 - (IBAction)login:(UIButton *)sender;
+- (IBAction)register:(UIButton *)sender;
 
 @end
 
@@ -20,22 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)login:(UIButton *)sender {
     NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/users/login"];
@@ -58,6 +46,7 @@
                                       if (!error)
                                       {
                                           NSLog(@"Status code: %li", (long)((NSHTTPURLResponse *)response).statusCode);
+                                          
                                       }
                                       else
                                       {
@@ -68,4 +57,23 @@
     // Start the task.
     [task resume];
 }
+
+- (IBAction)register:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"toRegister" sender:sender];
+}
+
+
+ #pragma mark - Navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+
+
+#pragma mark - Cleanup
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 @end

@@ -16,6 +16,7 @@
 		4A5226971D4BD8BC008D1E94 /* logo_ora.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226941D4BD8BC008D1E94 /* logo_ora.png */; };
 		4A5226981D4BD8BC008D1E94 /* logo_ora@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226951D4BD8BC008D1E94 /* logo_ora@2x.png */; };
 		4A5226991D4BD8BC008D1E94 /* logo_ora@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226961D4BD8BC008D1E94 /* logo_ora@3x.png */; };
+		4A52269D1D4BDFE5008D1E94 /* ORARegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A52269C1D4BDFE5008D1E94 /* ORARegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		4A5226941D4BD8BC008D1E94 /* logo_ora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_ora.png; sourceTree = "<group>"; };
 		4A5226951D4BD8BC008D1E94 /* logo_ora@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_ora@2x.png"; sourceTree = "<group>"; };
 		4A5226961D4BD8BC008D1E94 /* logo_ora@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_ora@3x.png"; sourceTree = "<group>"; };
+		4A52269B1D4BDFE5008D1E94 /* ORARegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORARegisterViewController.h; sourceTree = "<group>"; };
+		4A52269C1D4BDFE5008D1E94 /* ORARegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORARegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				4A52269A1D4BD8C4008D1E94 /* Images */,
 				4A5226911D4BCD98008D1E94 /* ORALoginViewController.h */,
 				4A5226921D4BCD98008D1E94 /* ORALoginViewController.m */,
+				4A52269B1D4BDFE5008D1E94 /* ORARegisterViewController.h */,
+				4A52269C1D4BDFE5008D1E94 /* ORARegisterViewController.m */,
 				4A52267D1D4BCD70008D1E94 /* AppDelegate.h */,
 				4A52267E1D4BCD70008D1E94 /* AppDelegate.m */,
 				4A5226831D4BCD70008D1E94 /* Main.storyboard */,
@@ -169,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A52269D1D4BDFE5008D1E94 /* ORARegisterViewController.m in Sources */,
 				4A5226931D4BCD98008D1E94 /* ORALoginViewController.m in Sources */,
 				4A52267F1D4BCD70008D1E94 /* AppDelegate.m in Sources */,
 				4A52267C1D4BCD70008D1E94 /* main.m in Sources */,

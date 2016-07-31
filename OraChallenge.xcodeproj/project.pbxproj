@@ -25,6 +25,7 @@
 		4A5226AD1D4BEC6A008D1E94 /* icon_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A71D4BEC6A008D1E94 /* icon_profile.png */; };
 		4A5226AE1D4BEC6A008D1E94 /* icon_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A81D4BEC6A008D1E94 /* icon_profile@2x.png */; };
 		4A5226AF1D4BEC6A008D1E94 /* icon_profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A91D4BEC6A008D1E94 /* icon_profile@3x.png */; };
+		4A5226B21D4C0E2B008D1E94 /* ORATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5226B11D4C0E2B008D1E94 /* ORATabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		4A5226A71D4BEC6A008D1E94 /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile.png; sourceTree = "<group>"; };
 		4A5226A81D4BEC6A008D1E94 /* icon_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_profile@2x.png"; sourceTree = "<group>"; };
 		4A5226A91D4BEC6A008D1E94 /* icon_profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_profile@3x.png"; sourceTree = "<group>"; };
+		4A5226B01D4C0E2B008D1E94 /* ORATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORATabBarController.h; sourceTree = "<group>"; };
+		4A5226B11D4C0E2B008D1E94 /* ORATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORATabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				4A5226921D4BCD98008D1E94 /* ORALoginViewController.m */,
 				4A52269B1D4BDFE5008D1E94 /* ORARegisterViewController.h */,
 				4A52269C1D4BDFE5008D1E94 /* ORARegisterViewController.m */,
+				4A5226B01D4C0E2B008D1E94 /* ORATabBarController.h */,
+				4A5226B11D4C0E2B008D1E94 /* ORATabBarController.m */,
 				4A52269E1D4BE815008D1E94 /* ORAChatsViewController.h */,
 				4A52269F1D4BE815008D1E94 /* ORAChatsViewController.m */,
 				4A5226A11D4BE82C008D1E94 /* ORAProfileViewController.h */,
@@ -213,6 +218,7 @@
 				4A5226A01D4BE815008D1E94 /* ORAChatsViewController.m in Sources */,
 				4A52267F1D4BCD70008D1E94 /* AppDelegate.m in Sources */,
 				4A52267C1D4BCD70008D1E94 /* main.m in Sources */,
+				4A5226B21D4C0E2B008D1E94 /* ORATabBarController.m in Sources */,
 				4A5226A31D4BE82C008D1E94 /* ORAProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

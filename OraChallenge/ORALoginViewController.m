@@ -26,6 +26,8 @@
 
 
 - (IBAction)login:(UIButton *)sender {
+    //    [self performSegueWithIdentifier:@"toTabBar" sender:self.navigationController];
+
     NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/users/login"];
     NSDictionary *parameters = @{@"email": _emailTextField.text,
                                  @"password": _passwordTextField.text};
@@ -46,7 +48,9 @@
                                       if (!error)
                                       {
                                           NSLog(@"Status code: %li", (long)((NSHTTPURLResponse *)response).statusCode);
-                                          
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              [self performSegueWithIdentifier:@"toTabBar" sender:self.navigationController];
+                                          });
                                       }
                                       else
                                       {
@@ -61,13 +65,6 @@
 - (IBAction)register:(UIButton *)sender {
     [self performSegueWithIdentifier:@"toRegister" sender:sender];
 }
-
-
- #pragma mark - Navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
 
 
 #pragma mark - Cleanup

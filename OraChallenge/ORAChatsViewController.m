@@ -19,25 +19,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/chats?q=q&page=1&limit=20"];
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+        
+        NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithURL:url
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if(error == nil)
+                                                            {
+                                                                NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                                               options:NSJSONReadingMutableContainers
+                                                                                                                                 error:&error];
+                                                                _chatsArray = [NSArray arrayWithObject:[jsonDictionary objectForKey:@"data"]];
+                                                                NSLog(@"%@", _chatsArray);
+                                                            }
+                                                        }];
+        
+        [dataTask resume];
+    });
     
-    NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/chats?q=q&page=1&limit=20"];
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-    
-    NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithURL:url
-                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                        if(error == nil)
-                                                        {
-                                                            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                                           options:NSJSONReadingMutableContainers
-                                                                                                                             error:&error];
-                                                            _chatsArray = [NSArray arrayWithObject:[jsonDictionary objectForKey:@"data"]];
-                                                            NSLog(@"%@", _chatsArray);
-                                                        }
-                                                    }];
-    
-    [dataTask resume];
-
 }
 
 #pragma mark - UITableViewDataSource
@@ -53,10 +54,7 @@
     static NSString *reuseIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    NSDictionary *chatDictionary = [_chatsArray objectAtIndex:indexPath.row];
-    NSLog(@"CHAT DICT: %@", chatDictionary);
-    
-    cell.textLabel.text = [[_chatsArray objectAtIndex:indexPath.row] valueForKey:@"name"];
+    cell.textLabel.text = @"Chat Cell";
     return cell;
 }
 

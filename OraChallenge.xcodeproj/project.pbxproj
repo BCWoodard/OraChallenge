@@ -26,6 +26,8 @@
 		4A5226AE1D4BEC6A008D1E94 /* icon_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A81D4BEC6A008D1E94 /* icon_profile@2x.png */; };
 		4A5226AF1D4BEC6A008D1E94 /* icon_profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5226A91D4BEC6A008D1E94 /* icon_profile@3x.png */; };
 		4A5226B21D4C0E2B008D1E94 /* ORATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5226B11D4C0E2B008D1E94 /* ORATabBarController.m */; };
+		4A5226B51D4EA1E7008D1E94 /* ORAChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5226B41D4EA1E7008D1E94 /* ORAChat.m */; };
+		4A5226B81D4F03B4008D1E94 /* ORAChatsListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5226B71D4F03B4008D1E94 /* ORAChatsListViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,10 @@
 		4A5226A91D4BEC6A008D1E94 /* icon_profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_profile@3x.png"; sourceTree = "<group>"; };
 		4A5226B01D4C0E2B008D1E94 /* ORATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORATabBarController.h; sourceTree = "<group>"; };
 		4A5226B11D4C0E2B008D1E94 /* ORATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORATabBarController.m; sourceTree = "<group>"; };
+		4A5226B31D4EA1E7008D1E94 /* ORAChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAChat.h; sourceTree = "<group>"; };
+		4A5226B41D4EA1E7008D1E94 /* ORAChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORAChat.m; sourceTree = "<group>"; };
+		4A5226B61D4F03B4008D1E94 /* ORAChatsListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAChatsListViewCell.h; sourceTree = "<group>"; };
+		4A5226B71D4F03B4008D1E94 /* ORAChatsListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORAChatsListViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				4A52269A1D4BD8C4008D1E94 /* Images */,
+				4A5226B31D4EA1E7008D1E94 /* ORAChat.h */,
+				4A5226B41D4EA1E7008D1E94 /* ORAChat.m */,
+				4A5226B61D4F03B4008D1E94 /* ORAChatsListViewCell.h */,
+				4A5226B71D4F03B4008D1E94 /* ORAChatsListViewCell.m */,
 				4A5226911D4BCD98008D1E94 /* ORALoginViewController.h */,
 				4A5226921D4BCD98008D1E94 /* ORALoginViewController.m */,
 				4A52269B1D4BDFE5008D1E94 /* ORARegisterViewController.h */,
@@ -216,9 +226,11 @@
 				4A52269D1D4BDFE5008D1E94 /* ORARegisterViewController.m in Sources */,
 				4A5226931D4BCD98008D1E94 /* ORALoginViewController.m in Sources */,
 				4A5226A01D4BE815008D1E94 /* ORAChatsViewController.m in Sources */,
+				4A5226B81D4F03B4008D1E94 /* ORAChatsListViewCell.m in Sources */,
 				4A52267F1D4BCD70008D1E94 /* AppDelegate.m in Sources */,
 				4A52267C1D4BCD70008D1E94 /* main.m in Sources */,
 				4A5226B21D4C0E2B008D1E94 /* ORATabBarController.m in Sources */,
+				4A5226B51D4EA1E7008D1E94 /* ORAChat.m in Sources */,
 				4A5226A31D4BE82C008D1E94 /* ORAProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

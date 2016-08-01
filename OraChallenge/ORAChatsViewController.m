@@ -7,9 +7,11 @@
 //
 
 #import "ORAChatsViewController.h"
+#import "ORAChat.h"
+#import "ORAChatsListViewCell.h"
 
 @interface ORAChatsViewController () <UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate>
-@property (nonatomic, strong) NSArray *chatsArray;
+@property (nonatomic, strong) NSMutableArray *chatsArray;
 @property (weak, nonatomic) IBOutlet UITableView *chatsTableView;
 
 @end
@@ -18,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _chatsArray = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/chats?q=q&page=1&limit=20"];
@@ -28,35 +32,77 @@
                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                             if(error == nil)
                                                             {
-                                                                NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                                               options:NSJSONReadingMutableContainers
-                                                                                                                                 error:&error];
-                                                                _chatsArray = [NSArray arrayWithObject:[jsonDictionary objectForKey:@"data"]];
-                                                                NSLog(@"%@", _chatsArray);
+                                                                NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                                options:kNilOptions
+                                                                                                                  error:&error];
+                                                                
+                                                                
+                                                                if ([jsonObject isKindOfClass:[NSArray class]]) {
+                                                                    NSLog(@"its an array!");
+                                                                    NSArray *jsonArray = (NSArray *)jsonObject;
+                                                                    NSLog(@"jsonArray - %@",jsonArray);
+                                                                }
+                                                                else {
+                                                                    NSLog(@"its probably a dictionary");
+                                                                    NSDictionary *jsonDictionary = (NSDictionary *)jsonObject;
+                                                                    //NSLog(@"jsonDictionary: %@", jsonDictionary);
+                                                                    NSArray *array = [jsonDictionary valueForKey:@"data"];
+                                                                    NSLog(@"array: %@", array);
+                                                                    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                                                        NSLog(@"Object %li", idx);
+                                                                        ORAChat *chat = [[ORAChat alloc] initChatWithDictionary:obj];
+                                                                        [_chatsArray addObject:chat];
+                                                                        NSLog(@"_chatArray Count: %li", _chatsArray.count);
+                                                                    }];
+//                                                                    [jsonDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+//                                                                        //ORAChat *chat = [[ORAChat alloc] initChatWithDictionary:obj];
+//                                                                        NSLog(@"obj: %@", obj);
+//                                                                    }];
+                                                                    
+                                                                    
+                                                                    
+                                                                    //chat.chatName = [subDictionary valueForKey:@"name"];
+                                                                    //NSLog(@"CHAT NAME: %@", chat.chatName);
+                                                                    //NSString *chatName = [subDictionary valueForKey:@"name"];
+                                                                    //[_chatsArray addObject:chatName];
+                                                                    //NSLog(@"_chatsArray: %@", _chatsArray);
+                                                                }
                                                             }
                                                         }];
         
-        [dataTask resume];
+        [dataTask resume];        
     });
     
+    _chatsTableView.rowHeight = UITableViewAutomaticDimension;
+    _chatsTableView.estimatedRowHeight = 100.0f;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.chatsTableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return _chatsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *reuseIdentifier = @"cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    cell.textLabel.text = @"Chat Cell";
+    ORAChatsListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    ORAChat *chat = [_chatsArray objectAtIndex:indexPath.row];
+    cell.chatOwnerLabel.text = chat.chatName;
+    cell.latestMsgOwnerLabel.text = chat.chatOwner;
+    cell.messageLabel.text = chat.chatLastMsg;
     return cell;
 }
+
+#pragma mark - UITableViewDelegate
 
 
 #pragma mark - Cleanup

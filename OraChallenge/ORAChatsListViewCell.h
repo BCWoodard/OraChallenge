@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ORAChatsListViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *chatCreatedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *chatOwnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *latestMsgOwnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;

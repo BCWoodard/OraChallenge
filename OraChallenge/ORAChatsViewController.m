@@ -96,8 +96,9 @@
     
     ORAChatsListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     ORAChat *chat = [_chatsArray objectAtIndex:indexPath.row];
+    cell.chatCreatedLabel.text = chat.chatStartDate;
     cell.chatOwnerLabel.text = [NSString stringWithFormat:@"%@ by %@", chat.chatName, chat.chatOwner];
-    cell.latestMsgOwnerLabel.text = chat.chatLastMsgOwner;
+    cell.latestMsgOwnerLabel.text = [NSString stringWithFormat:@"%@ - %@", chat.chatLastMsgOwner, chat.chatLastMsgDate];
     cell.messageLabel.text = chat.chatLastMsg;
     return cell;
 }

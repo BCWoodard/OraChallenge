@@ -303,47 +303,76 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="42F-dy-flc">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="WG9-T1-u5P" customClass="ORAChatsListViewCell">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="130" id="WG9-T1-u5P" customClass="ORAChatsListViewCell">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WG9-T1-u5P" id="7hJ-OZ-HtE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6Y-8H-LQr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="27"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e98-0I-oWN">
+                                                            <rect key="frame" x="8" y="0.0" width="584" height="27"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="27" id="4ku-n6-Mc2"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="e98-0I-oWN" firstAttribute="leading" secondItem="A6Y-8H-LQr" secondAttribute="leading" constant="8" id="52p-Il-8mC"/>
+                                                        <constraint firstAttribute="height" constant="27" id="N0N-ca-Jc7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="e98-0I-oWN" secondAttribute="bottom" id="jGo-47-ptV"/>
+                                                        <constraint firstItem="e98-0I-oWN" firstAttribute="top" secondItem="A6Y-8H-LQr" secondAttribute="top" id="qgu-6c-IKm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="e98-0I-oWN" secondAttribute="trailing" constant="8" id="xaU-ie-efm"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tY5-2S-tdv">
-                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr8-VH-1x8">
-                                                    <rect key="frame" x="8" y="37" width="584" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="8" y="35" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z12-lY-sde">
-                                                    <rect key="frame" x="8" y="66" width="584" height="21"/>
+                                                    <rect key="frame" x="8" y="93" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr8-VH-1x8">
+                                                    <rect key="frame" x="8" y="64" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.98431372549019602" green="0.68627450980392157" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="tY5-2S-tdv" firstAttribute="top" secondItem="A6Y-8H-LQr" secondAttribute="bottom" constant="8" id="3uA-Jq-H8L"/>
                                                 <constraint firstAttribute="trailing" secondItem="Z12-lY-sde" secondAttribute="trailing" constant="8" id="5OF-V3-LT1"/>
+                                                <constraint firstAttribute="trailing" secondItem="A6Y-8H-LQr" secondAttribute="trailing" id="950-vW-EbU"/>
                                                 <constraint firstAttribute="trailing" secondItem="fr8-VH-1x8" secondAttribute="trailing" constant="8" id="C2m-Xb-YiF"/>
                                                 <constraint firstItem="tY5-2S-tdv" firstAttribute="leading" secondItem="7hJ-OZ-HtE" secondAttribute="leading" constant="8" id="D4A-Et-ApC"/>
                                                 <constraint firstItem="fr8-VH-1x8" firstAttribute="top" secondItem="tY5-2S-tdv" secondAttribute="bottom" constant="8" id="IgJ-6L-t8V"/>
-                                                <constraint firstItem="tY5-2S-tdv" firstAttribute="top" secondItem="7hJ-OZ-HtE" secondAttribute="top" constant="8" id="Jyu-V1-BmU"/>
+                                                <constraint firstItem="A6Y-8H-LQr" firstAttribute="top" secondItem="7hJ-OZ-HtE" secondAttribute="top" id="SKT-zu-P1q"/>
                                                 <constraint firstItem="fr8-VH-1x8" firstAttribute="leading" secondItem="7hJ-OZ-HtE" secondAttribute="leading" constant="8" id="auC-JI-av9"/>
                                                 <constraint firstItem="Z12-lY-sde" firstAttribute="top" secondItem="fr8-VH-1x8" secondAttribute="bottom" constant="8" id="eyr-PH-nKc"/>
                                                 <constraint firstAttribute="trailing" secondItem="tY5-2S-tdv" secondAttribute="trailing" constant="8" id="jFl-dN-U1l"/>
                                                 <constraint firstItem="Z12-lY-sde" firstAttribute="leading" secondItem="7hJ-OZ-HtE" secondAttribute="leading" constant="8" id="sZI-Qb-UgU"/>
-                                                <constraint firstAttribute="bottom" secondItem="Z12-lY-sde" secondAttribute="bottom" constant="12" id="xa6-Bl-Jjy"/>
+                                                <constraint firstItem="A6Y-8H-LQr" firstAttribute="leading" secondItem="7hJ-OZ-HtE" secondAttribute="leading" id="tom-bZ-WDS"/>
+                                                <constraint firstAttribute="bottom" secondItem="Z12-lY-sde" secondAttribute="bottom" constant="15" id="xa6-Bl-Jjy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="chatCreatedLabel" destination="e98-0I-oWN" id="Ifa-n4-XVo"/>
                                             <outlet property="chatOwnerLabel" destination="tY5-2S-tdv" id="H6W-iK-3mA"/>
                                             <outlet property="latestMsgOwnerLabel" destination="fr8-VH-1x8" id="dUf-al-Z27"/>
                                             <outlet property="messageLabel" destination="Z12-lY-sde" id="gVU-HH-mgk"/>

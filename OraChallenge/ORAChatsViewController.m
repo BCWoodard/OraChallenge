@@ -84,11 +84,11 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _chatsArray.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return _chatsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,8 +96,8 @@
     
     ORAChatsListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     ORAChat *chat = [_chatsArray objectAtIndex:indexPath.row];
-    cell.chatOwnerLabel.text = chat.chatName;
-    cell.latestMsgOwnerLabel.text = chat.chatOwner;
+    cell.chatOwnerLabel.text = [NSString stringWithFormat:@"%@ by %@", chat.chatName, chat.chatOwner];
+    cell.latestMsgOwnerLabel.text = chat.chatLastMsgOwner;
     cell.messageLabel.text = chat.chatLastMsg;
     return cell;
 }

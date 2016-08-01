@@ -19,20 +19,25 @@
     
     if (self) {
         _chatDictionary = chatDictionary;
+        _chatStartDate = [self getCreatedDateFromString:[chatDictionary valueForKey:@"created"]];
         _chatName = [chatDictionary valueForKey:@"name"];
         _chatOwner = [[chatDictionary objectForKey:@"user"] valueForKey:@"name"];
         _chatLastMsg = [[chatDictionary objectForKey:@"last_message"] valueForKey:@"message"];
+        _chatLastMsgOwner = [[[chatDictionary objectForKey:@"last_message"] objectForKey:@"user"] valueForKey:@"name"];
     }
     
     return self;
 }
 
-//+ (instancetype)initChatWithName:(NSString *)chatName {
-//
-//    ORAChat *chat = [[ORAChat alloc] initChatWithName:chatName];
-//    
-//    return chat;
-//    
-//}
+- (NSString *)getCreatedDateFromString:(NSString *)chatDate {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+    NSDate *date = [formatter dateFromString:chatDate];
+    
+    NSDateFormatter *newFormatter = [[NSDateFormatter alloc] init];
+    [newFormatter setDateFormat:@"LLLL dd"];
+    
+    return [newFormatter stringFromDate:date];
+}
 
 @end

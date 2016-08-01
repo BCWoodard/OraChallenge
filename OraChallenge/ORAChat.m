@@ -30,6 +30,7 @@
     return self;
 }
 
+#pragma mark - Helper Functions
 - (NSString *)getCreatedDateFromString:(NSString *)chatDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -74,7 +75,6 @@
             returnString = [NSString stringWithFormat:@"%li days %li hours ago", days, hours];
         }
     }
-//    NSLog(@"number of days: %li, hours: %li and minutes: %li", (long)days, (long)hours, (long)minutes);
 
     return returnString;
 }

@@ -20,9 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _chatsArray = [[NSMutableArray alloc] init];
-    // Do any additional setup after loading the view.
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/chats?q=q&page=1&limit=20"];
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -35,38 +34,13 @@
                                                                 NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
                                                                                                                 options:kNilOptions
                                                                                                                   error:&error];
-                                                                
-                                                                
-                                                                if ([jsonObject isKindOfClass:[NSArray class]]) {
-                                                                    NSLog(@"its an array!");
-                                                                    NSArray *jsonArray = (NSArray *)jsonObject;
-                                                                    NSLog(@"jsonArray - %@",jsonArray);
-                                                                }
-                                                                else {
-                                                                    NSLog(@"its probably a dictionary");
-                                                                    NSDictionary *jsonDictionary = (NSDictionary *)jsonObject;
-                                                                    //NSLog(@"jsonDictionary: %@", jsonDictionary);
-                                                                    NSArray *array = [jsonDictionary valueForKey:@"data"];
-                                                                    NSLog(@"array: %@", array);
-                                                                    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                                                                        NSLog(@"Object %li", idx);
-                                                                        ORAChat *chat = [[ORAChat alloc] initChatWithDictionary:obj];
-                                                                        [_chatsArray addObject:chat];
-                                                                        NSLog(@"_chatArray Count: %li", _chatsArray.count);
-                                                                    }];
-//                                                                    [jsonDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-//                                                                        //ORAChat *chat = [[ORAChat alloc] initChatWithDictionary:obj];
-//                                                                        NSLog(@"obj: %@", obj);
-//                                                                    }];
-                                                                    
-                                                                    
-                                                                    
-                                                                    //chat.chatName = [subDictionary valueForKey:@"name"];
-                                                                    //NSLog(@"CHAT NAME: %@", chat.chatName);
-                                                                    //NSString *chatName = [subDictionary valueForKey:@"name"];
-                                                                    //[_chatsArray addObject:chatName];
-                                                                    //NSLog(@"_chatsArray: %@", _chatsArray);
-                                                                }
+                                                                NSDictionary *jsonDictionary = (NSDictionary *)jsonObject;
+                                                                NSArray *chatsArray = [jsonDictionary valueForKey:@"data"];
+                                                                [chatsArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                                                    // Enumerate and create chat object then add to _chatsArray
+                                                                    ORAChat *chat = [[ORAChat alloc] initChatWithDictionary:obj];
+                                                                    [_chatsArray addObject:chat];
+                                                                }];
                                                             }
                                                         }];
         
@@ -103,23 +77,11 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-
 
 #pragma mark - Cleanup
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

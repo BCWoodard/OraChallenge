@@ -20,14 +20,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 
 - (IBAction)login:(UIButton *)sender {
-    //    [self performSegueWithIdentifier:@"toTabBar" sender:self.navigationController];
-
+    if ([_emailTextField.text isEqualToString:@""] || [_passwordTextField.text isEqualToString:@""]) {
+        // No blank password.
+        // Assume that validation occurs on the server side.
+        NSLog(@"PLEASE CORRECT LOGIN INFORMATION");
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://private-d9e5b-oracodechallenge.apiary-mock.com/users/login"];
     NSDictionary *parameters = @{@"email": _emailTextField.text,
                                  @"password": _passwordTextField.text};
@@ -70,7 +74,6 @@
 #pragma mark - Cleanup
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
